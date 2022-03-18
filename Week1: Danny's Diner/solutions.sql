@@ -102,7 +102,7 @@ group by sales.customer_id
 ; 
 -- 9.  If each $1 spent equates to 10 points and sushi has a 2x points multiplier - how many points would each customer have?
 
-with points as (
+with allocate_points as (
   select product_id
   	, product_name
     , price 
@@ -111,10 +111,11 @@ with points as (
   			end as points
   from dannys_diner.menu
  )
+
 select customer_id
- 	, sum(points)
+ 	, sum(allocate_points.points) as points 
 from dannys_diner.sales 
-	left join points on sales.product_id = points.product_id
+	left join allocate_points on sales.product_id = allocate_points.product_id
 group by customer_id    
 ;
 
