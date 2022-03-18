@@ -1,3 +1,4 @@
+CREATE SCHEMA dannys_diner;
 
 CREATE TABLE dannys_diner.sales (
   customer_id STRING(1),
@@ -25,7 +26,7 @@ VALUES
   ('C', '2021-01-07', 3);
 
 CREATE TABLE dannys_diner.menu (
-  product_id STRING(1),
+  product_id INTEGER,
   product_name STRING(5),
   price INTEGER
 );
@@ -47,4 +48,5 @@ INSERT INTO dannys_diner.members
   (customer_id, join_date)
 VALUES
   ('A', 2021-01-07),
-  ('B', 2021-01-09);
+  ('B', 2021-01-09)
+  ;
